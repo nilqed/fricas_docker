@@ -1,0 +1,3 @@
+#!/bin/bash
+cat Dockerfile
+docker build -t nilqed/fricas .

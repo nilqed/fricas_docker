@@ -1,0 +1,82 @@
+# **************************************************************************
+# Installs SBCL, FriCAS and QuickLisp.
+# Build .... : docker build -t nilqed/fricas .
+# Test ..... : docker run -t -i nilqed/fricas [/bin/bash| fricas -nox]
+# Version .. : $Id: Dockerfile 1 2015-09-23 1:46:12Z pagani $
+# **************************************************************************
+
+FROM ubuntu:14.04
+
+MAINTAINER Kurt Pagani <nilqed@gmail.com> 
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV SBCL_HOME /usr/local/lib/sbcl
+
+# ======================================
+# Get packages and install missing tools
+# ======================================
+
+RUN apt-get update && apt-get install -y -q \
+    build-essential \
+    make \
+    gcc \
+zlib1g-dev \
+    git \
+    python \
+    python-dev \
+    python-pip \
+    python3-dev \
+    python3-pip \
+    python-sphinx \
+    python3-sphinx \
+    libzmq3-dev \
+    sqlite3 \
+    libsqlite3-dev \
+    pandoc \
+    libcurl4-openssl-dev \
+    nodejs \
+    nodejs-legacy \
+    npm \    
+    subversion  \
+    bzip2 \
+    wget \
+    gnupg
+
+RUN pip2 install --upgrade setuptools pip
+RUN pip3 install --upgrade setuptools pip
+RUN pip3 install jupyter
+    
+ 
+# ====  
+# SBCL
+# ====
+
+RUN cd /root && \
+    wget http://prdownloads.sourceforge.net/sbcl/sbcl-1.2.15-x86-64-linux-binary.tar.bz2  && \
+    bzip2 -cd sbcl-1.2.15-x86-64-linux-binary.tar.bz2 | tar xvf - 
+
+RUN cd /root/sbcl-1.2.15-x86-64-linux && sh install.sh && \
+    cd /root && rm -r sbcl-1.2.15-x86-64-linux && \
+    rm sbcl-1.2.15-x86-64-linux-binary.tar.bz2
+
+
+# =============================
+# FriCAS (may take some time ;)
+# =============================
+
+RUN cd /root && svn co svn://svn.code.sf.net/p/fricas/code/trunk fricas && \
+    cd fricas && ./configure && make && make install && \
+    cd /root && rm -r fricas
+
+
+# =========
+# QuickLisp
+# =========
+
+RUN cd /root && mkdir -p ./tmp && cd ./tmp && \
+    wget  https://beta.quicklisp.org/quicklisp.lisp && \
+    wget https://beta.quicklisp.org/quicklisp.lisp.asc && \
+    # gpg --verify quicklisp.lisp.asc quicklisp.lisp && \
+    sbcl --load "quicklisp.lisp" --eval "(progn (quicklisp-quickstart:install)(quit))" 
+    
+ 
