@@ -39,7 +39,9 @@ RUN apt-get update && apt-get install -y -q \
     libxdmcp-dev \ 
     libxpm-dev \
     dvipng \ 
-    auctex
+    auctex \
+    net-tools \
+    inetutils-ping
   
 
 # =============================
