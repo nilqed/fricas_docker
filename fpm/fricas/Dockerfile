@@ -49,6 +49,12 @@ RUN cd /root && \
     --maintainer "Kurt Pagani <nilqed@gmail.com>" \
     --description "https://en.wikipedia.org/wiki/FriCAS" \
     --url "http://fricas.sourceforge.net/" \
-    --depends libx11-dev \
+    --depends libx11 \
+    --depends libxt \ 
+    --depends libice \
+    --depends libsm \ 
+    --depends libxau \ 
+    --depends libxdmcp \ 
+    --depends libxpm \
 /usr/local/bin/fricas /usr/local/lib/fricas/
 

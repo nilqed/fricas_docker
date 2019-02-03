@@ -1,3 +1,11 @@
+kfp@euler:~/devel/fricas_docker/fricas$ ./build.sh 
+Error: No such image: nilqed/fricas:latest
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nilqed/fricas       latest              b5de5b7aae14        1 second ago        1.22GB
+ubuntu              latest              20bb25d32758        11 days ago         87.5MB
+
+
+
 =====
 Build
 =====

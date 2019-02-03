@@ -14,7 +14,7 @@ LABEL fricas-devel <fricas-devel@googlegroups.com>
 # discouraged: see https://docs.docker.com/engine/faq/
 
 ENV FRICAS_SF https://sourceforge.net/projects/fricas/files/fricas
-ENV FRICAS_VERSION 1.3.4
+ENV FRICAS_VERSION 1.3.5
 
 # ======================================
 # Get packages and install missing tools

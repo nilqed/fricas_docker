@@ -1,0 +1,7 @@
+
+
+FROM ubuntu:latest
+
+RUN apt install fricas ...
+
+# Also check ASDF & Hunchentoot

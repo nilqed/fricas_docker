@@ -2,18 +2,23 @@
 fricas_docker
 =============
 
-v1.3.1:debian ... FriCAS 1.3.1 / SBCL 1.3.15 / Debian Jessie
+v1.3.1:debian ... FriCAS 1.3.1 / SBCL 1.3.15 / Debian Jessie (deleted)
 v1.3.1:ubuntu ... FriCAS 1.3.1 / SBCL 1.3.15 / Ubuntu Xenial
+v1.3.5:ubuntu ... FriCAS 1.3.5 / SBCL 1.4.5  / Ubuntu 18.04.1 LTS
 
 
-Build
------
-cd v.1.3.1:???
-docker build . 
+Packages
+--------
 Package "deb": /root/fricas_1.3.1_amd64.deb
 Extract with : docker cp (see below)
 
 See https://hub.docker.com/r/nilqed/fricas/
+
+===========================
+Some useful Docker commands
+===========================
+
+https://docs.docker.com/engine/reference/commandline/run/
 
 -- stop/remove all containers
 docker stop $(docker ps -a -q)
@@ -21,3 +26,66 @@ docker rm $(docker ps -a -q)
 
 -- copy container -> host
 docker cp <containerId>:/file/path/within/container /host/path/target
+
+-- remove all images
+docker rmi $(docker images -q)
+
+
+============
+Pull and run
+============
+
+$ docker pull nilqed/fricas
+Using default tag: latest
+latest: Pulling from nilqed/fricas
+38e2e6cd5626: Pull complete 
+705054bc3f5b: Pull complete 
+c7051e069564: Pull complete 
+7308e914506c: Pull complete 
+7d2d2b74b341: Pull complete 
+e4fc773ac367: Pull complete 
+Digest: sha256:00297a8eebe7c422ed4f8ef3f63a472e2f26950541387d6c55b47319f95adef0
+Status: Downloaded newer image for nilqed/fricas:latest
+
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nilqed/fricas       latest              b5de5b7aae14        36 minutes ago      1.22GB
+
+
+$ docker run -t -i nilqed/fricas fricas -nox
+Checking for foreign routines
+AXIOM="/usr/local/lib/fricas/target/x86_64-linux-gnu"
+spad-lib="/usr/local/lib/fricas/target/x86_64-linux-gnu/lib/libspad.so"
+foreign routines found
+openServer result 0
+                       FriCAS Computer Algebra System 
+                            Version: FriCAS 1.3.5
+                   Timestamp: Sun Feb  3 18:21:59 UTC 2019
+-----------------------------------------------------------------------------
+   Issue )copyright to view copyright notices.
+   Issue )summary for a summary of useful system commands.
+   Issue )quit to leave FriCAS and return to shell.
+-----------------------------------------------------------------------------
+ 
+
+(1) -> )version
+Value = "FriCAS 1.3.5 compiled at Sun Feb  3 18:21:59 UTC 2019"
+(1) -> )lisp (lisp-implementation-type)
+
+Value = "SBCL"
+(1) -> )lisp (lisp-implementation-version)
+
+Value = "1.4.5.debian"
+(1) -> )lisp (require :asdf)              
+
+Value = ("uiop" "UIOP" "asdf" "ASDF")
+(1) -> D(x^n,n,2)
+
+              2 n
+   (1)  log(x) x
+                                                    Type: Expression(Integer)
+(2) -> )q
+
+
+
+
