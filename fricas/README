@@ -90,7 +90,7 @@ kfp@euler:~/devel/fricas_docker/fricas$
 docker run -t -i --rm -e DISPLAY=$DISPLAY fricas:latest fricas 
 
 
-sudo docker tag pure_complete_ppa nilqed/pure_complete_ppa
+sudo docker tag fricas:latest nilqed/fricas:latest
 sudo docker push nilqed/fricas:latest
 
 The push refers to repository [docker.io/nilqed/fricas]
