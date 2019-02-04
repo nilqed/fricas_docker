@@ -14,6 +14,16 @@ Extract with : docker cp (see below)
 
 See https://hub.docker.com/r/nilqed/fricas/
 
+Binaries
+--------
+
+https://bitbucket.org/kfp/fricas_binaries/downloads/
+
+fricas_1.3.5_amd64.deb 	41.3 MB 	
+fricas_1.3.4_amd64.deb 	40.9 MB
+
+Install: apt install ./fricas_x.y.z_amd64.deb
+
 ===========================
 Some useful Docker commands
 ===========================

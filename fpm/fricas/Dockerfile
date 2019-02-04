@@ -12,14 +12,11 @@ FROM nilqed/fricas:latest
 
 LABEL fpm_doc https://fpm.readthedocs.io/en/latest/index.html
 
-# MAINTAINER Kurt Pagani <nilqed@gmail.com> 
-
 ENV DEBIAN_FRONTEND noninteractive
 # discouraged: see https://docs.docker.com/engine/faq/
-# but necessary here ...
 
 ENV FRICAS_SF https://sourceforge.net/projects/fricas/files/fricas
-ENV FRICAS_VERSION 1.3.4
+ENV FRICAS_VERSION 1.3.5
 
 # ======================================
 # Get packages and install missing tools
