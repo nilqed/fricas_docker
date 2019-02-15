@@ -40,6 +40,13 @@ docker cp <containerId>:/file/path/within/container /host/path/target
 -- remove all images
 docker rmi $(docker images -q)
 
+===
+X11
+===
+
+If you want to use X11, then for example:
+
+$ docker run -ti --rm --network=host --env DISPLAY=:0 nilqed/fricas:latest fricas
 
 ============
 Pull and run
