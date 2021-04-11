@@ -1,0 +1,221 @@
+Sending build context to Docker daemon  11.26kB
+Step 1/6 : FROM nilqed/fricas
+ ---> de4c1975d9ff
+Step 2/6 : LABEL fricas-devel <fricas-devel@googlegroups.com>
+ ---> Using cache
+ ---> c37b4e61a85a
+Step 3/6 : ENV JFRICAS_GITHUB https://github.com/fricas/jfricas.pip
+ ---> Using cache
+ ---> de03752e9656
+Step 4/6 : ENV JFRICAS_VERSION 1.0.0
+ ---> Using cache
+ ---> 0dfb17ac7586
+Step 5/6 : RUN apt-get update && apt-get install -y -q     python3.6     python3-pip     cl-asdf     cl-hunchentoot     firefox     gnuplot
+ ---> Using cache
+ ---> 089e9d04e56d
+Step 6/6 : RUN cd /root &&     pip3 install jupyter &&     pip3 install jfricas &&     cd /root
+ ---> Running in d3e065b92764
+Collecting jupyter
+  Downloading https://files.pythonhosted.org/packages/83/df/0f5dd132200728a86190397e1ea87cd76244e42d39ec5e88efd25b2abd7e/jupyter-1.0.0-py2.py3-none-any.whl
+Collecting jupyter-console (from jupyter)
+  Downloading https://files.pythonhosted.org/packages/59/cd/aa2670ffc99eb3e5bbe2294c71e4bf46a9804af4f378d09d7a8950996c9b/jupyter_console-6.4.0-py3-none-any.whl
+Collecting nbconvert (from jupyter)
+  Downloading https://files.pythonhosted.org/packages/13/2f/acbe7006548f3914456ee47f97a2033b1b2f3daf921b12ac94105d87c163/nbconvert-6.0.7-py3-none-any.whl (552kB)
+Collecting notebook (from jupyter)
+  Downloading https://files.pythonhosted.org/packages/5d/86/8f951abc6ac651a75a059d2b77fe99fa5df80bf4dc4700c126a0bee486b8/notebook-6.3.0-py3-none-any.whl (9.5MB)
+Collecting ipywidgets (from jupyter)
+  Downloading https://files.pythonhosted.org/packages/11/53/084940a83a8158364e630a664a30b03068c25ab75243224d6b488800d43a/ipywidgets-7.6.3-py2.py3-none-any.whl (121kB)
+Collecting ipykernel (from jupyter)
+  Downloading https://files.pythonhosted.org/packages/3a/7d/9f8ac1b1b76f2f1538b5650f0b5636bae082724b1e06939a3a9d38e1380e/ipykernel-5.5.3-py3-none-any.whl (120kB)
+Collecting qtconsole (from jupyter)
+  Downloading https://files.pythonhosted.org/packages/22/4d/94cb45a6f0c25a2693f7c8c0fe0814c3f52ba0f9c920ad75104005b31d42/qtconsole-5.0.3-py3-none-any.whl (119kB)
+Collecting jupyter-client (from jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/50/d0/9a6cef4d6471e482fbf8943242ddbe559d1f99761e85983c07d623f7b70c/jupyter_client-6.1.13-py3-none-any.whl (112kB)
+Collecting pygments (from jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/3a/80/a52c0a7c5939737c6dca75a831e89658ecb6f590fb7752ac777d221937b9/Pygments-2.8.1-py3-none-any.whl (983kB)
+Collecting prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0 (from jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/eb/e6/4b4ca4fa94462d4560ba2f4e62e62108ab07be2e16a92e594e43b12d3300/prompt_toolkit-3.0.18-py3-none-any.whl (367kB)
+Collecting ipython (from jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/23/6a/210816c943c9aeeb29e4e18a298f14bf0e118fe222a23e13bfcc2d41b0a4/ipython-7.16.1-py3-none-any.whl (785kB)
+Collecting testpath (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/1b/9e/1a170feaa54f22aeb5a5d16c9015e82234275a3c8ab630b552493f9cb8a9/testpath-0.4.4-py2.py3-none-any.whl (163kB)
+Collecting nbclient<0.6.0,>=0.5.0 (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/22/a6/f3a01a5c1a0e72d1d064f33d4cd9c3a782010f48f48f47f256d0b438994a/nbclient-0.5.3-py3-none-any.whl (82kB)
+Collecting entrypoints>=0.2.2 (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/ac/c6/44694103f8c221443ee6b0041f69e2740d89a25641e62fb4f2ee568f2f9c/entrypoints-0.3-py2.py3-none-any.whl
+Collecting mistune<2,>=0.8.1 (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/09/ec/4b43dae793655b7d8a25f76119624350b4d65eb663459eb9603d7f1f0345/mistune-0.8.4-py2.py3-none-any.whl
+Collecting traitlets>=4.2 (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/ca/ab/872a23e29cec3cf2594af7e857f18b687ad21039c1f9b922fac5b9b142d5/traitlets-4.3.3-py2.py3-none-any.whl (75kB)
+Collecting nbformat>=4.4 (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/e7/c7/dd50978c637a7af8234909277c4e7ec1b71310c13fb3135f3c8f5b6e045f/nbformat-5.1.3-py3-none-any.whl (178kB)
+Collecting pandocfilters>=1.4.1 (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/28/78/bd59a9adb72fa139b1c9c186e6f65aebee52375a747e4b6a6dcf0880956f/pandocfilters-1.4.3.tar.gz
+Collecting bleach (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/f0/46/2bbd92086a4c6f051214cb48df6d9132b5f32c5e881d3f4991b16ec7e499/bleach-3.3.0-py2.py3-none-any.whl (283kB)
+Collecting defusedxml (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl
+Collecting jupyterlab-pygments (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/a8/6f/c34288766797193b512c6508f5994b830fb06134fdc4ca8214daba0aa443/jupyterlab_pygments-0.1.2-py2.py3-none-any.whl
+Collecting jinja2>=2.4 (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/7e/c2/1eece8c95ddbc9b1aeb64f5783a9e07a286de42191b7204d67b7496ddf35/Jinja2-2.11.3-py2.py3-none-any.whl (125kB)
+Collecting jupyter-core (from nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/53/40/5af36bffa0af3ac71d3a6fc6709de10e4f6ff7c01745b8bc4715372189c9/jupyter_core-4.7.1-py3-none-any.whl (82kB)
+Collecting tornado>=6.1 (from notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/01/d1/8750ad20cbcefb499bb8b405e243f83c2c89f78d139e6f8c8d800640f554/tornado-6.1-cp36-cp36m-manylinux1_x86_64.whl (427kB)
+Collecting argon2-cffi (from notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/e0/d7/5da06217807106ed6d7b4f5ccb8ec5e3f9ec969217faad4b5d1af0b55101/argon2_cffi-20.1.0-cp35-abi3-manylinux1_x86_64.whl (97kB)
+Collecting pyzmq>=17 (from notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/7c/8f/e83fc0060a7626d3555b971a70a37a0d57f727ec7ec860e9aadf96fdd724/pyzmq-22.0.3-cp36-cp36m-manylinux1_x86_64.whl (1.1MB)
+Collecting terminado>=0.8.3 (from notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/47/ad/f7bc3e40570212ed9ccc9ac72d17315574d82fc100eb74d660c31817ddd2/terminado-0.9.4-py3-none-any.whl
+Collecting prometheus-client (from notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/22/f7/f6e1676521ce7e311d38563d2cf6594d09d3717d799ede7dab7b2520093e/prometheus_client-0.10.1-py2.py3-none-any.whl (55kB)
+Collecting ipython-genutils (from notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/fa/bc/9bd3b5c2b4774d5f33b2d544f1460be9df7df2fe42f352135381c347c69a/ipython_genutils-0.2.0-py2.py3-none-any.whl
+Collecting Send2Trash>=1.5.0 (from notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/49/46/c3dc27481d1cc57b9385aff41c474ceb7714f7935b1247194adae45db714/Send2Trash-1.5.0-py3-none-any.whl
+Collecting widgetsnbextension~=3.5.0 (from ipywidgets->jupyter)
+  Downloading https://files.pythonhosted.org/packages/6c/7b/7ac231c20d2d33c445eaacf8a433f4e22c60677eb9776c7c5262d7ddee2d/widgetsnbextension-3.5.1-py2.py3-none-any.whl (2.2MB)
+Collecting jupyterlab-widgets>=1.0.0; python_version >= "3.6" (from ipywidgets->jupyter)
+  Downloading https://files.pythonhosted.org/packages/18/b5/3473d275e3b2359efdf5768e9df95537308b93a31ad94fa92814ac565826/jupyterlab_widgets-1.0.0-py3-none-any.whl (243kB)
+Collecting qtpy (from qtconsole->jupyter)
+  Downloading https://files.pythonhosted.org/packages/cd/fd/9972948f02e967b691cc0ca1f26124826a3b88cb38f412a8b7935b8c3c72/QtPy-1.9.0-py2.py3-none-any.whl (54kB)
+Collecting nest-asyncio>=1.5 (from jupyter-client->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/52/e2/9b37da54e6e9094d2f558ae643d1954a0fa8215dfee4fa261f31c5439796/nest_asyncio-1.5.1-py3-none-any.whl
+Collecting python-dateutil>=2.1 (from jupyter-client->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/d4/70/d60450c3dd48ef87586924207ae8907090de0b306af2bce5d134d78615cb/python_dateutil-2.8.1-py2.py3-none-any.whl (227kB)
+Collecting wcwidth (from prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/59/7c/e39aca596badaf1b78e8f547c807b04dae603a433d3e7a7e04d67f2ef3e5/wcwidth-0.2.5-py2.py3-none-any.whl
+Collecting pickleshare (from ipython->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/9a/41/220f49aaea88bc6fa6cba8d05ecf24676326156c23b991e80b3f2fc24c77/pickleshare-0.7.5-py2.py3-none-any.whl
+Requirement already satisfied: setuptools>=18.5 in /usr/lib/python3/dist-packages (from ipython->jupyter-console->jupyter)
+Collecting jedi>=0.10 (from ipython->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/f9/36/7aa67ae2663025b49e8426ead0bad983fee1b73f472536e9790655da0277/jedi-0.18.0-py2.py3-none-any.whl (1.4MB)
+Collecting backcall (from ipython->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/4c/1c/ff6546b6c12603d8dd1070aa3c3d273ad4c07f5771689a7b69a550e8c951/backcall-0.2.0-py2.py3-none-any.whl
+Collecting decorator (from ipython->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/d8/12/5d214c8f64723366e555b4800d9a9eacd083e99cc782d86fc0b9b1635702/decorator-5.0.6-py3-none-any.whl
+Collecting pexpect; sys_platform != "win32" (from ipython->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/39/7b/88dbb785881c28a102619d46423cb853b46dbccc70d3ac362d99773a78ce/pexpect-4.8.0-py2.py3-none-any.whl (59kB)
+Collecting async-generator (from nbclient<0.6.0,>=0.5.0->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/71/52/39d20e03abd0ac9159c162ec24b93fbcaa111e8400308f2465432495ca2b/async_generator-1.10-py3-none-any.whl
+Requirement already satisfied: six in /usr/lib/python3/dist-packages (from traitlets>=4.2->nbconvert->jupyter)
+Collecting jsonschema!=2.5.0,>=2.4 (from nbformat>=4.4->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/c5/8f/51e89ce52a085483359217bc72cdbf6e75ee595d5b1d4b5ade40c7e018b8/jsonschema-3.2.0-py2.py3-none-any.whl (56kB)
+Collecting packaging (from bleach->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/3e/89/7ea760b4daa42653ece2380531c90f64788d979110a2ab51049d92f408af/packaging-20.9-py2.py3-none-any.whl (40kB)
+Collecting webencodings (from bleach->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/f4/24/2a3e3df732393fed8b3ebf2ec078f05546de641fe1b667ee316ec1dcf3b7/webencodings-0.5.1-py2.py3-none-any.whl
+Collecting MarkupSafe>=0.23 (from jinja2>=2.4->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/b2/5f/23e0023be6bb885d00ffbefad2942bc51a620328ee910f64abe5a8d18dd1/MarkupSafe-1.1.1-cp36-cp36m-manylinux1_x86_64.whl
+Collecting cffi>=1.0.0 (from argon2-cffi->notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/2b/cf/9a3b04e57191a970836aeaa8b2075574f02fbdb65d6368457a2f13213e7f/cffi-1.14.5-cp36-cp36m-manylinux1_x86_64.whl (401kB)
+Collecting ptyprocess; os_name != "nt" (from terminado>=0.8.3->notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/22/a6/858897256d0deac81a172289110f31629fc4cee19b6f01283303e18c8db3/ptyprocess-0.7.0-py2.py3-none-any.whl
+Collecting parso<0.9.0,>=0.8.0 (from jedi>=0.10->ipython->jupyter-console->jupyter)
+  Downloading https://files.pythonhosted.org/packages/a9/c4/d5476373088c120ffed82f34c74b266ccae31a68d665b837354d4d8dc8be/parso-0.8.2-py2.py3-none-any.whl (94kB)
+Collecting importlib-metadata; python_version < "3.8" (from jsonschema!=2.5.0,>=2.4->nbformat>=4.4->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/99/8f/b0ac918b2234848ec5bd2a887d2be7d6686355fcb22d7a0efe878d5c1555/importlib_metadata-3.10.0-py3-none-any.whl
+Collecting attrs>=17.4.0 (from jsonschema!=2.5.0,>=2.4->nbformat>=4.4->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/c3/aa/cb45262569fcc047bf070b5de61813724d6726db83259222cd7b4c79821a/attrs-20.3.0-py2.py3-none-any.whl (49kB)
+Collecting pyrsistent>=0.14.0 (from jsonschema!=2.5.0,>=2.4->nbformat>=4.4->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/4d/70/fd441df751ba8b620e03fd2d2d9ca902103119616f0f6cc42e6405035062/pyrsistent-0.17.3.tar.gz (106kB)
+Collecting pyparsing>=2.0.2 (from packaging->bleach->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/8a/bb/488841f56197b13700afd5658fc279a2025a39e22449b7cf29864669b15d/pyparsing-2.4.7-py2.py3-none-any.whl (67kB)
+Collecting pycparser (from cffi>=1.0.0->argon2-cffi->notebook->jupyter)
+  Downloading https://files.pythonhosted.org/packages/ae/e7/d9c3a176ca4b02024debf82342dab36efadfc5776f9c8db077e8f6e71821/pycparser-2.20-py2.py3-none-any.whl (112kB)
+Collecting zipp>=0.5 (from importlib-metadata; python_version < "3.8"->jsonschema!=2.5.0,>=2.4->nbformat>=4.4->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/0f/8c/715c54e9e34c0c4820f616a913a7de3337d0cd79074dd1bed4dd840f16ae/zipp-3.4.1-py3-none-any.whl
+Collecting typing-extensions>=3.6.4; python_version < "3.8" (from importlib-metadata; python_version < "3.8"->jsonschema!=2.5.0,>=2.4->nbformat>=4.4->nbconvert->jupyter)
+  Downloading https://files.pythonhosted.org/packages/60/7a/e881b5abb54db0e6e671ab088d079c57ce54e8a01a3ca443f561ccadb37e/typing_extensions-3.7.4.3-py3-none-any.whl
+Building wheels for collected packages: pandocfilters, pyrsistent
+  Running setup.py bdist_wheel for pandocfilters: started
+  Running setup.py bdist_wheel for pandocfilters: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/93/9a/79/b2c3567908fd6209e4674ca23d9fcf005aae5fe89148913727
+  Running setup.py bdist_wheel for pyrsistent: started
+  Running setup.py bdist_wheel for pyrsistent: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/f0/b8/de/b593ad311be4eb458499d100db081e453576032272398b7ddc
+Successfully built pandocfilters pyrsistent
+Installing collected packages: nest-asyncio, ipython-genutils, decorator, traitlets, jupyter-core, python-dateutil, tornado, pyzmq, jupyter-client, pygments, wcwidth, prompt-toolkit, pickleshare, parso, jedi, backcall, ptyprocess, pexpect, ipython, ipykernel, jupyter-console, testpath, async-generator, zipp, typing-extensions, importlib-metadata, attrs, pyrsistent, jsonschema, nbformat, nbclient, entrypoints, mistune, pandocfilters, pyparsing, packaging, webencodings, bleach, defusedxml, jupyterlab-pygments, MarkupSafe, jinja2, nbconvert, pycparser, cffi, argon2-cffi, terminado, prometheus-client, Send2Trash, notebook, widgetsnbextension, jupyterlab-widgets, ipywidgets, qtpy, qtconsole, jupyter
+Successfully installed MarkupSafe-1.1.1 Send2Trash-1.5.0 argon2-cffi-20.1.0 async-generator-1.10 attrs-20.3.0 backcall-0.2.0 bleach-3.3.0 cffi-1.14.5 decorator-5.0.6 defusedxml-0.7.1 entrypoints-0.3 importlib-metadata-3.10.0 ipykernel-5.5.3 ipython-7.16.1 ipython-genutils-0.2.0 ipywidgets-7.6.3 jedi-0.18.0 jinja2-2.11.3 jsonschema-3.2.0 jupyter-1.0.0 jupyter-client-6.1.13 jupyter-console-6.4.0 jupyter-core-4.7.1 jupyterlab-pygments-0.1.2 jupyterlab-widgets-1.0.0 mistune-0.8.4 nbclient-0.5.3 nbconvert-6.0.7 nbformat-5.1.3 nest-asyncio-1.5.1 notebook-6.3.0 packaging-20.9 pandocfilters-1.4.3 parso-0.8.2 pexpect-4.8.0 pickleshare-0.7.5 prometheus-client-0.10.1 prompt-toolkit-3.0.18 ptyprocess-0.7.0 pycparser-2.20 pygments-2.8.1 pyparsing-2.4.7 pyrsistent-0.17.3 python-dateutil-2.8.1 pyzmq-22.0.3 qtconsole-5.0.3 qtpy-1.9.0 terminado-0.9.4 testpath-0.4.4 tornado-6.1 traitlets-4.3.3 typing-extensions-3.7.4.3 wcwidth-0.2.5 webencodings-0.5.1 widgetsnbextension-3.5.1 zipp-3.4.1
+Collecting jfricas
+  Downloading https://files.pythonhosted.org/packages/6c/c1/7df6609a5c99f16ba7a7ae745b376ca3ac5edfc567000d03c0b1921c5dc4/jfricas-1.0.0.tar.gz
+Requirement already satisfied: jupyter in /usr/local/lib/python3.6/dist-packages (from jfricas)
+Collecting requests (from jfricas)
+  Downloading https://files.pythonhosted.org/packages/29/c1/24814557f1d22c56d50280771a17307e6bf87b70727d975fd6b2ce6b014a/requests-2.25.1-py2.py3-none-any.whl (61kB)
+Requirement already satisfied: ipywidgets in /usr/local/lib/python3.6/dist-packages (from jupyter->jfricas)
+Requirement already satisfied: ipykernel in /usr/local/lib/python3.6/dist-packages (from jupyter->jfricas)
+Requirement already satisfied: notebook in /usr/local/lib/python3.6/dist-packages (from jupyter->jfricas)
+Requirement already satisfied: nbconvert in /usr/local/lib/python3.6/dist-packages (from jupyter->jfricas)
+Requirement already satisfied: jupyter-console in /usr/local/lib/python3.6/dist-packages (from jupyter->jfricas)
+Requirement already satisfied: qtconsole in /usr/local/lib/python3.6/dist-packages (from jupyter->jfricas)
+Requirement already satisfied: idna<3,>=2.5 in /usr/lib/python3/dist-packages (from requests->jfricas)
+Collecting certifi>=2017.4.17 (from requests->jfricas)
+  Downloading https://files.pythonhosted.org/packages/5e/a0/5f06e1e1d463903cf0c0eebeb751791119ed7a4b3737fdc9a77f1cdfb51f/certifi-2020.12.5-py2.py3-none-any.whl (147kB)
+Collecting chardet<5,>=3.0.2 (from requests->jfricas)
+  Downloading https://files.pythonhosted.org/packages/19/c7/fa589626997dd07bd87d9269342ccb74b1720384a4d739a1872bd84fbe68/chardet-4.0.0-py2.py3-none-any.whl (178kB)
+Collecting urllib3<1.27,>=1.21.1 (from requests->jfricas)
+  Downloading https://files.pythonhosted.org/packages/09/c6/d3e3abe5b4f4f16cf0dfc9240ab7ce10c2baa0e268989a4e3ec19e90c84e/urllib3-1.26.4-py2.py3-none-any.whl (153kB)
+Requirement already satisfied: nbformat>=4.2.0 in /usr/local/lib/python3.6/dist-packages (from ipywidgets->jupyter->jfricas)
+Requirement already satisfied: widgetsnbextension~=3.5.0 in /usr/local/lib/python3.6/dist-packages (from ipywidgets->jupyter->jfricas)
+Requirement already satisfied: traitlets>=4.3.1 in /usr/local/lib/python3.6/dist-packages (from ipywidgets->jupyter->jfricas)
+Requirement already satisfied: jupyterlab-widgets>=1.0.0; python_version >= "3.6" in /usr/local/lib/python3.6/dist-packages (from ipywidgets->jupyter->jfricas)
+Requirement already satisfied: ipython>=4.0.0; python_version >= "3.3" in /usr/local/lib/python3.6/dist-packages (from ipywidgets->jupyter->jfricas)
+Requirement already satisfied: tornado>=4.2 in /usr/local/lib/python3.6/dist-packages (from ipykernel->jupyter->jfricas)
+Requirement already satisfied: jupyter-client in /usr/local/lib/python3.6/dist-packages (from ipykernel->jupyter->jfricas)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.6/dist-packages (from notebook->jupyter->jfricas)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.6/dist-packages (from notebook->jupyter->jfricas)
+Requirement already satisfied: jupyter-core>=4.6.1 in /usr/local/lib/python3.6/dist-packages (from notebook->jupyter->jfricas)
+Requirement already satisfied: prometheus-client in /usr/local/lib/python3.6/dist-packages (from notebook->jupyter->jfricas)
+Requirement already satisfied: pyzmq>=17 in /usr/local/lib/python3.6/dist-packages (from notebook->jupyter->jfricas)
+Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.6/dist-packages (from notebook->jupyter->jfricas)
+Requirement already satisfied: terminado>=0.8.3 in /usr/local/lib/python3.6/dist-packages (from notebook->jupyter->jfricas)
+Requirement already satisfied: Send2Trash>=1.5.0 in /usr/local/lib/python3.6/dist-packages (from notebook->jupyter->jfricas)
+Requirement already satisfied: entrypoints>=0.2.2 in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: pygments>=2.4.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: mistune<2,>=0.8.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: bleach in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: pandocfilters>=1.4.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: nbclient<0.6.0,>=0.5.0 in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: testpath in /usr/local/lib/python3.6/dist-packages (from nbconvert->jupyter->jfricas)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0 in /usr/local/lib/python3.6/dist-packages (from jupyter-console->jupyter->jfricas)
+Requirement already satisfied: qtpy in /usr/local/lib/python3.6/dist-packages (from qtconsole->jupyter->jfricas)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in /usr/local/lib/python3.6/dist-packages (from nbformat>=4.2.0->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: decorator in /usr/local/lib/python3.6/dist-packages (from traitlets>=4.3.1->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: six in /usr/lib/python3/dist-packages (from traitlets>=4.3.1->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: setuptools>=18.5 in /usr/lib/python3/dist-packages (from ipython>=4.0.0; python_version >= "3.3"->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: jedi>=0.10 in /usr/local/lib/python3.6/dist-packages (from ipython>=4.0.0; python_version >= "3.3"->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: backcall in /usr/local/lib/python3.6/dist-packages (from ipython>=4.0.0; python_version >= "3.3"->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: pexpect; sys_platform != "win32" in /usr/local/lib/python3.6/dist-packages (from ipython>=4.0.0; python_version >= "3.3"->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: pickleshare in /usr/local/lib/python3.6/dist-packages (from ipython>=4.0.0; python_version >= "3.3"->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: python-dateutil>=2.1 in /usr/local/lib/python3.6/dist-packages (from jupyter-client->ipykernel->jupyter->jfricas)
+Requirement already satisfied: nest-asyncio>=1.5 in /usr/local/lib/python3.6/dist-packages (from jupyter-client->ipykernel->jupyter->jfricas)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/local/lib/python3.6/dist-packages (from jinja2->notebook->jupyter->jfricas)
+Requirement already satisfied: cffi>=1.0.0 in /usr/local/lib/python3.6/dist-packages (from argon2-cffi->notebook->jupyter->jfricas)
+Requirement already satisfied: ptyprocess; os_name != "nt" in /usr/local/lib/python3.6/dist-packages (from terminado>=0.8.3->notebook->jupyter->jfricas)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.6/dist-packages (from bleach->nbconvert->jupyter->jfricas)
+Requirement already satisfied: packaging in /usr/local/lib/python3.6/dist-packages (from bleach->nbconvert->jupyter->jfricas)
+Requirement already satisfied: async-generator in /usr/local/lib/python3.6/dist-packages (from nbclient<0.6.0,>=0.5.0->nbconvert->jupyter->jfricas)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.6/dist-packages (from prompt-toolkit!=3.0.0,!=3.0.1,<3.1.0,>=2.0.0->jupyter-console->jupyter->jfricas)
+Requirement already satisfied: importlib-metadata; python_version < "3.8" in /usr/local/lib/python3.6/dist-packages (from jsonschema!=2.5.0,>=2.4->nbformat>=4.2.0->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: pyrsistent>=0.14.0 in /usr/local/lib/python3.6/dist-packages (from jsonschema!=2.5.0,>=2.4->nbformat>=4.2.0->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: attrs>=17.4.0 in /usr/local/lib/python3.6/dist-packages (from jsonschema!=2.5.0,>=2.4->nbformat>=4.2.0->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: parso<0.9.0,>=0.8.0 in /usr/local/lib/python3.6/dist-packages (from jedi>=0.10->ipython>=4.0.0; python_version >= "3.3"->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: pycparser in /usr/local/lib/python3.6/dist-packages (from cffi>=1.0.0->argon2-cffi->notebook->jupyter->jfricas)
+Requirement already satisfied: pyparsing>=2.0.2 in /usr/local/lib/python3.6/dist-packages (from packaging->bleach->nbconvert->jupyter->jfricas)
+Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.6/dist-packages (from importlib-metadata; python_version < "3.8"->jsonschema!=2.5.0,>=2.4->nbformat>=4.2.0->ipywidgets->jupyter->jfricas)
+Requirement already satisfied: typing-extensions>=3.6.4; python_version < "3.8" in /usr/local/lib/python3.6/dist-packages (from importlib-metadata; python_version < "3.8"->jsonschema!=2.5.0,>=2.4->nbformat>=4.2.0->ipywidgets->jupyter->jfricas)
+Building wheels for collected packages: jfricas
+  Running setup.py bdist_wheel for jfricas: started
+  Running setup.py bdist_wheel for jfricas: finished with status 'done'
+  Stored in directory: /root/.cache/pip/wheels/45/8a/7a/d7697d5d64f6d15959041e6c6377b0dc804084f8992b7ed3f0
+Successfully built jfricas
+Installing collected packages: certifi, chardet, urllib3, requests, jfricas
+Successfully installed certifi-2020.12.5 chardet-4.0.0 jfricas-1.0.0 requests-2.25.1 urllib3-1.26.4
+Removing intermediate container d3e065b92764
+ ---> 60876a7382e3
+Successfully built 60876a7382e3
+Successfully tagged nilqed/jfricas:latest
