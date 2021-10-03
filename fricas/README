@@ -22,15 +22,16 @@ Successfully tagged fricas:latest
 ===========
 Test FriCAS
 ===========
-kfp@euler:~/devel/fricas_docker/fricas$ docker run -t -i fricas:latest fricas -nox
+kfp@euler:~/devel/fricas_docker/fricas$ ./test.sh 
+Testing nilqed/fricas:latest
 Checking for foreign routines
-AXIOM="/usr/local/lib/fricas/target/x86_64-linux-gnu"
+FRICAS="/usr/local/lib/fricas/target/x86_64-linux-gnu"
 spad-lib="/usr/local/lib/fricas/target/x86_64-linux-gnu/lib/libspad.so"
 foreign routines found
 openServer result 0
                        FriCAS Computer Algebra System 
-                            Version: FriCAS 1.3.4
-                   Timestamp: Sat Feb  2 19:01:01 UTC 2019
+                            Version: FriCAS 1.3.7
+                   Timestamp: Sun Oct  3 13:40:08 UTC 2021
 -----------------------------------------------------------------------------
    Issue )copyright to view copyright notices.
    Issue )summary for a summary of useful system commands.
@@ -39,27 +40,29 @@ openServer result 0
  
 
 (1) -> )version
-Value = "FriCAS 1.3.4 compiled at Sat Feb  2 19:01:01 UTC 2019"
+Value = "FriCAS 1.3.7 compiled at Sun Oct  3 13:40:08 UTC 2021"
 (1) -> )lisp (lisp-implementation-type)
 
 Value = "SBCL"
 (1) -> )lisp (lisp-implementation-version)
 
 Value = "1.4.5.debian"
+(1) -> D(x^n,x,3) 
 
-(1) -> D(x^n,x,12)
-
-   (1)
-        12       11         10          9           8            7             6
-       n   - 66 n   + 1925 n   - 32670 n  + 357423 n  - 2637558 n  + 13339535 n
-     + 
-                   5              4              3              2
-       - 45995730 n  + 105258076 n  - 150917976 n  + 120543840 n  - 39916800 n
-  *
-      n - 12
-     x
+          3      2        n - 3
+   (1)  (n  - 3 n  + 2 n)x
                                                     Type: Expression(Integer)
 (2) -> )q
+
+
+
+fricas_test_tmp
+fricas_test_tmp
+CONTAINER ID   IMAGE          COMMAND                  CREATED        STATUS                    PORTS     NAMES
+1c2ea5f37c2c   089e9d04e56d   "/bin/sh -c 'cd /roo…"   5 months ago   Exited (1) 5 months ago             exciting_wing
+b8408287df13   de4c1975d9ff   "fricas -nox"            5 months ago   Exited (0) 5 months ago             priceless_euler
+done.
+
 
 
 =========
@@ -102,8 +105,13 @@ sudo docker tag fricas:latest nilqed/fricas:latest
 sudo docker push nilqed/fricas:latest
 
 The push refers to repository [docker.io/nilqed/fricas]
-427dfc197eb9: Pushed 
-0f5918f28203: Pushed 
-kfp@euler:~/devel/fricas_docker$ 
+8d0b0206d6f5: Pushed 
+2eca6fe5c3b6: Pushed 
+e80c789bc6ac: Layer already exists 
+6c3332381368: Layer already exists 
+ef1a1ec5bba9: Layer already exists 
+a1aa3da2a80a: Layer already exists 
+latest: digest: sha256:8ef90c20073c59c06330e23275885e0bf1636e9f869b5090a57507e6f3628df7 size: 1577
+
 
 

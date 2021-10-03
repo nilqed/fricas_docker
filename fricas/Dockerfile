@@ -2,7 +2,7 @@
 # Purpose ...: Compilation of FriCAS (official SF version) 
 # Build .... : docker build -t fricas:latest .
 # Test ..... : docker run -t -i fricas:latest fricas -nox
-# Version .. : 11-APR-2021
+# Version .. : 03-OCT-2021
 # OS ....... : ubuntu:latest 
 # **************************************************************************
 
@@ -14,7 +14,7 @@ LABEL fricas-devel <fricas-devel@googlegroups.com>
 # discouraged: see https://docs.docker.com/engine/faq/
 
 ENV FRICAS_SF https://sourceforge.net/projects/fricas/files/fricas
-ENV FRICAS_VERSION 1.3.6
+ENV FRICAS_VERSION 1.3.7
 
 # ======================================
 # Get packages and install missing tools
